@@ -64,7 +64,7 @@ This environment exists purely for **learning and authorized practice** — thin
 
 ## 🏗️ Lab Overview
 
-*(Screenshot: VirtualBox Manager showing the Kali VM — add here)*
+![VirtualBox Manager showing the Kali VM](working-screenshots/Screenshot-1.png)
 
 The lab runs entirely inside VirtualBox on my laptop, isolated from my regular home network traffic, with room to add more virtual machines later if I want to build out a bigger multi-VM range.
 
@@ -93,17 +93,19 @@ The lab runs entirely inside VirtualBox on my laptop, isolated from my regular h
  
 Downloaded and installed 7-Zip, needed to unpack the Kali Linux VM archive once it lands on disk.
  
-*(Screenshot: 7-Zip installed — add here)*
+![7-Zip installed](working-screenshots/Screenshot-2.png)
  
 **Step 2 - Hypervisor Installation**
  
 Downloaded and installed VirtualBox as the hypervisor for the whole operation. Nothing dramatic here, yet.
  
-*(Screenshot: VirtualBox installed and open — add here)*
+![VirtualBox installed and opened](working-screenshots/Screenshot-3.png)
  
 **Step 3 - Kali Linux Image Import**
  
 Downloaded the official Kali Linux VirtualBox image from Kali's website, extracted it with 7-Zip, and imported it as a new virtual machine. Kali ships pre-loaded with more security tools than I currently know what to do with, which is exactly the point.
+
+![Choosing Virtual Box Kali Linux for Download](working-screenshots/Screenshot-4.png)
  
 **Step 4 - NAT Network Configuration**
  
@@ -118,7 +120,7 @@ DHCP:         Enabled
 IPv6:         Disabled
 ```
  
-*(Screenshot: NAT Networks tab — add here)*
+![NAT Networks tab](working-screenshots/Screenshot-5.png)
  
 With the network created, I attached Kali's Adapter 1 to it:
  
@@ -128,6 +130,8 @@ Name:             NatNetwork
 Adapter Type:     Intel PRO/1000 MT Desktop
 Promiscuous Mode: Allow All
 ```
+
+![Network adapter and static IP settings](working-screenshots/Screenshot-6.png)
  
 I then reserved `10.0.0.2` for Kali out of the wider `10.0.0.2-99/24` range, so the rest of the block stays free for future target machines, and set it manually inside Kali:
  
@@ -138,7 +142,7 @@ Gateway:     10.0.0.1
 DNS servers: 8.8.8.8   (fallback: 10.0.0.1, if internet gives issues)
 ```
  
-*(Screenshot: Network adapter and static IP settings — add here)*
+![Kali NAT configuration](working-screenshots/Screenshot-7.png)
  
 **Step 5 - Resource Allocation**
  
@@ -153,7 +157,7 @@ Storage: 20 GB
  
 Powered on Kali, logged in, and checked that networking was actually functional — which, spoiler alert, is where the fun began. (See the Troubleshooting Log below.)
  
-*(Screenshot: Kali desktop after boot — add here)*
+![Kali desktop after boot](working-screenshots/Screenshot-8.png)
  
 **Step 7 - Baseline Snapshot**
  
@@ -162,6 +166,7 @@ Once everything was stable and verified, I took a VirtualBox snapshot so I have 
 ```
 Snapshot name: Fresh Start with NAT (nmcli used)
 ```
+![Kali Snapshot](working-screenshots/Screenshot-9.png)
 
 ---
 
